@@ -1,12 +1,8 @@
 #ifndef INCLUDE_KAFKA_CONSUMER_H
 #define INCLUDE_KAFKA_CONUMER_H
+#include "kafka_common.h"
 #include "rdkafka.h"
 #include <string>
-
-struct KafkaControl {
-  rd_kafka_t *control;
-  rd_kafka_topic_t *topic;
-};
 
 class KafkaConsumer {
  public:

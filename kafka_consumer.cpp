@@ -61,10 +61,11 @@ void KafkaConsumer::ConsumerThd(int partition) {
     if (rkmessage->err) {
       if (rkmessage->err != RD_KAFKA_RESP_ERR__PARTITION_EOF)
         LOG(ERROR) << rkmessage->err;
-	continue;
+	    continue;
     }
 
     ProcessMessage((const char*)rkmessage->payload, (int)rkmessage->len);
+    rd_kafka_message_destroy(rkmessage);
   }
 }
 
